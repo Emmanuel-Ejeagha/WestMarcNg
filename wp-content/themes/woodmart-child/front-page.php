@@ -181,8 +181,15 @@ get_header();
 					<h2 id="wm-developments-title">Projects in Ajah, Lekki and Ikeja.</h2>
 					<p>A mix of commercial and residential developments at different stages. Inspections are arranged by appointment.</p>
 				</div>
-
-				<div class="wm-project-grid">
+				<span class="wm-carousel-nav__prev" aria-label="Previous project">&lsaquo;</span>
+				<span class="wm-carousel-nav__next" aria-label="Next project">&rsaquo;</span>
+				<div class="wm-carousel-dots" role="tablist">
+					<button class="wm-carousel-dot wm-carousel-dot--active" type="button" role="tab" aria-controls="wm-project-1" tabindex="0">1</button>
+					<button class="wm-carousel-dot" type="button" role="tab" aria-controls="wm-project-2" tabindex="0">2</button>
+					<button class="wm-carousel-dot" type="button" role="tab" aria-controls="wm-project-3" tabindex="0">3</button>
+				</div>
+				<div class="wm-carousel__stage">
+^I^I^I^I^I<div class="wm-project-grid">
 					<article class="wm-project-card">
 						<a class="wm-project-card__image" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
 							<?php
@@ -431,7 +438,7 @@ get_header();
 			<div class="wm-container wm-video__grid">
 				<div class="wm-video__media">
 					<div class="wm-video__frame">
-						<video controls playsinline preload="none" width="352" height="640" poster="<?php echo esc_url( wm_asset_url( 'video-poster' ) ); ?>">
+						<video controls playsinline preload="none" autoplay muted loop width="352" height="640" poster="<?php echo esc_url( wm_asset_url( 'video-poster' ) ); ?>">
 							<source src="<?php echo esc_url( content_url( '/uploads/2026/11/Urban Tola Mall at Mobil road beside Northwest Filling Station Ajah.mp4' ) ); ?>" type="video/mp4">
 							<p>Your browser does not support the video element. <a href="<?php echo esc_url( content_url( '/uploads/2026/11/Urban Tola Mall at Mobil road beside Northwest Filling Station Ajah.mp4' ) ); ?>">Download the Urban Tola Mall site walkthrough</a>.</p>
 						</video>

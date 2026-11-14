@@ -821,3 +821,87 @@
 	.wm-intro__facts { grid-template-columns: 1fr; }
 	.wm-intro__facts > :last-child { grid-column: auto; }
 }
+/* Projects carousel */
+.wm-carousel {
+	position: relative;
+	max-width: 100%;
+	margin: 0 auto;
+}
+.wm-carousel__viewport {
+	overflow: hidden;
+	position: relative;
+}
+.wm-carousel__stage {
+	display: flex;
+	transition: transform 0.6s var(--wm-ease);
+	min-height: 420px;
+}
+.wm-carousel__stage > .wm-project-card {
+	flex: 0 0 100%;
+}
+.wm-carousel__prev,
+.wm-carousel__next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	border: none;
+	background: transparent;
+	color: var(--wm-ink);
+	font-size: 2rem;
+	padding: 0 12px;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+.wm-carousel__prev { left: 24px; }
+.wm-carousel__next { right: 24px; }
+.wm-carousel__prev:hover,
+.wm-carousel__next:hover { color: var(--wm-gold); }
+.wm-carousel__nav {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-top: 16px;
+	list-style: none;
+	padding: 0;
+}
+.wm-carousel__nav-item {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--wm-line);
+	border: 2px solid transparent;
+	transition: background 0.2s, border 0.2s;
+}
+.wm-carousel__nav-item.wm-carousel__nav-btn--active {
+	background: var(--wm-ink);
+	border: 2px solid var(--wm-ink);
+}
+.wm-carousel__nav-btn {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--wm-line);
+	border: 2px solid transparent;
+	cursor: pointer;
+	padding: 0;
+}
+.wm-carousel__nav-btn.wm-carousel__nav-btn--active {
+	background: var(--wm-ink);
+	border: 2px solid var(--wm-ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wm-carousel__stage {
+    transition: none;
+  }
+  .wm-carousel__prev,
+  .wm-carousel__next,
+  .wm-carousel__nav-btn {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .wm-carousel__stage > .wm-project-card {
+    flex: 0 0 100%;
+  }
+}

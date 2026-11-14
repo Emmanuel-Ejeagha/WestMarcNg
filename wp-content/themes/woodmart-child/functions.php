@@ -316,5 +316,142 @@ add_action( 'wp_footer', 'wm_faq_schema', 20 );
 /**
  * Keep the WordPress head tidy.
  */
-remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+/* Projects carousel initialization */
+
+/* Projects carousel initialization */
+function wm_carousel_init_script() {
+    ?>
+    <script type="text/javascript">
+        /* Projects carousel initialization */
+        function wm_carousel_init() {
+            const carousel = document.querySelector('.wm-carousel');
+            if (!carousel) return;
+            
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const stage = carousel.querySelector('.wm-carousel__stage');
+            const slides = stage ? stage.querySelectorAll('.wm-project-card') : [];
+            const prevBtn = carousel.querySelector('.wm-carousel__prev');
+            const nextBtn = carousel.querySelector('.wm-carousel__next');
+            const dots = carousel.querySelectorAll('.wm-carousel__nav-btn');
+            const dotsContainer = carousel.querySelector('.wm-carousel__nav');
+            
+            if (!stage || !slides.length) return;
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            let autoSlideInterval = null;
+            
+            // Disable auto-slide if prefers-reduced-motion
+            if (!prefersReducedMotion) {
+              autoSlideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                const translateX = -currentSlide * 100 + '%';
+                stage.style.transform = `translateX(${translateX})`;
+                
+                // Update active dot
+                if (dotsContainer) {
+                  dots.forEach(dot => dot.classList.remove('wm-carousel__nav-btn--active'));
+                  dots[currentSlide].classList.add('wm-carousel__nav-btn--active');
+                }
+              }, 6000);
+            }
+            
+            function goToSlide(index) {
+              currentSlide = (index + totalSlides) % totalSlides;
+              const translateX = -currentSlide * 100 + '%';
+              stage.style.transform = `translateX(${translateX})`;
+              
+              // Update active dot
+              if (dotsContainer) {
+                dots.forEach(dot => dot.classList.remove('wm-carousel__nav-btn--active'));
+                dots[currentSlide].classList.add('wm-carousel__nav-btn--active');
+              }
+            }
+            
+            function prevSlide() {
+              goToSlide(currentSlide - 1);
+            }
+            
+            function nextSlide() {
+              goToSlide(currentSlide + 1);
+            }
+            
+            // Previous slide button
+            if (prevBtn) {
+              prevBtn.addEventListener('click', prevSlide);
+              prevBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') prevSlide();
+              });
+            }
+            
+            // Next slide button
+            if (nextBtn) {
+              nextBtn.addEventListener('click', nextSlide);
+              nextBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') nextSlide();
+              });
+            }
+            
+            // Pagination dots
+            if (dotsContainer) {
+              dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => goToSlide(i));
+                dot.addEventListener('keydown', (e) => {
+                  if (e.key === 'Enter' || e.key === ' ') goToSlide(i);
+                });
+              });
+            }
+            
+            // Hover pause
+            if (carousel) {
+              carousel.addEventListener('mouseenter', () => {
+                if (autoSlideInterval) clearInterval(autoSlideInterval);
+              });
+              carousel.addEventListener('mouseleave', () => {
+                if (!prefersReducedMotion && autoSlideInterval === null) {
+                  autoSlideInterval = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    const translateX = -currentSlide * 100 + '%';
+                    stage.style.transform = `translateX(${translateX})`;
+                    if (dotsContainer) {
+                      dots.forEach(dot => dot.classList.remove('wm-carousel__nav-btn--active'));
+                      dots[currentSlide].classList.add('wm-carousel__nav-btn--active');
+                    }
+                  }, 6000);
+                }
+              });
+            }
+            
+            // Touch/swipe support
+            let startX = 0;
+            let isDragging = false;
+            if (stage) {
+              stage.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+              });
+              stage.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                if (Math.abs(diff) > 50) {
+                  if (diff > 0) nextSlide();
+                  else prevSlide();
+                }
+                isDragging = false;
+              });
+            }
+          }
+          
+          // Initialize on DOMContentLoaded
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', wm_carousel_init);
+          } else {
+            wm_carousel_init();
+          }
+        </script>
+        <?php
+    }
+    add_action('wp_footer', 'wm_carousel_init_script', 100);

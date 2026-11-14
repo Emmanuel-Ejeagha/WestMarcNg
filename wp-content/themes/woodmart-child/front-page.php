@@ -181,71 +181,147 @@ get_header();
 					<h2 id="wm-developments-title">Projects in Ajah, Lekki and Ikeja.</h2>
 					<p>A mix of commercial and residential developments at different stages. Inspections are arranged by appointment.</p>
 				</div>
-				<span class="wm-carousel-nav__prev" aria-label="Previous project">&lsaquo;</span>
-				<span class="wm-carousel-nav__next" aria-label="Next project">&rsaquo;</span>
-				<div class="wm-carousel-dots" role="tablist">
-					<button class="wm-carousel-dot wm-carousel-dot--active" type="button" role="tab" aria-controls="wm-project-1" tabindex="0">1</button>
-					<button class="wm-carousel-dot" type="button" role="tab" aria-controls="wm-project-2" tabindex="0">2</button>
-					<button class="wm-carousel-dot" type="button" role="tab" aria-controls="wm-project-3" tabindex="0">3</button>
-				</div>
-				<div class="wm-carousel__stage">
-^I^I^I^I^I<div class="wm-project-grid">
-					<article class="wm-project-card">
-						<a class="wm-project-card__image" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
-							<?php
-							echo wm_image(
-								'greenland',
-								[
-									'sizes' => '(max-width: 768px) 100vw, 33vw',
-								]
-							); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							?>
-						</a>
-						<div class="wm-project-card__body">
-							<p class="wm-project-card__meta">Residential · Lekki-Ajah</p>
-							<h3><a href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Greenland Estate</a></h3>
-							<p>Five 2-bedroom apartments and one 4-bedroom duplex within Greenland Estate, Lekki-Ajah.</p>
-							<a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Enquire <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
-						</div>
-					</article>
+				<?php
+				$wm_gallery = [
+					[
+						'key'   => 'greenland',
+						'title' => 'Greenland Estate',
+						'meta'  => 'Residential · Lekki-Ajah',
+						'class' => '',
+					],
+					[
+						'key'   => 'kayfarm',
+						'title' => 'Kayfarm',
+						'meta'  => 'Residential · Ikeja',
+						'class' => '',
+					],
+					[
+						'key'   => 'triangle-front',
+						'title' => 'The Triangle Mall',
+						'meta'  => 'Commercial · Osapa London, Lekki',
+						'class' => 'wm-gallery__slide--triangle',
+					],
+					[
+						'key'   => 'triangle-inside',
+						'title' => 'Inside The Triangle Mall',
+						'meta'  => 'Osapa London, Lekki',
+						'class' => '',
+					],
+					[
+						'key'   => 'urban-exterior',
+						'title' => 'Urban Tola Mall',
+						'meta'  => 'Commercial · Ajah, Lagos',
+						'class' => '',
+					],
+					[
+						'key'   => 'urban-render',
+						'title' => 'Urban Tola Mall',
+						'meta'  => 'Architectural render',
+						'class' => '',
+					],
+					[
+						'key'   => 'site-team',
+						'title' => 'On site',
+						'meta'  => 'Westmarc project team',
+						'class' => 'wm-gallery__slide--team',
+					],
+				];
+				?>
 
-					<article class="wm-project-card">
-						<a class="wm-project-card__image" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
-							<?php
-							echo wm_image(
-								'kayfarm',
-								[
-									'sizes' => '(max-width: 768px) 100vw, 33vw',
-								]
-							); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							?>
-						</a>
-						<div class="wm-project-card__body">
-							<p class="wm-project-card__meta">Residential · Ikeja</p>
-							<h3><a href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Kayfarm</a></h3>
-							<p>Six 4-bedroom terraced homes at Kayfarm, Ikeja, planned for family living.</p>
-							<a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Enquire <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
-						</div>
-					</article>
+				<div class="wm-projects__layout">
+					<div class="wm-projects__cards">
+						<div class="wm-project-grid">
+							<article class="wm-project-card">
+								<a class="wm-project-card__image" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
+									<?php
+									echo wm_image(
+										'greenland',
+										[
+											'sizes' => '(max-width: 600px) 110px, 150px',
+										]
+									); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									?>
+								</a>
+								<div class="wm-project-card__body">
+									<p class="wm-project-card__meta">Residential · Lekki-Ajah</p>
+									<h3><a href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Greenland Estate</a></h3>
+									<p>Five 2-bedroom apartments and one 4-bedroom duplex within Greenland Estate, Lekki-Ajah.</p>
+									<a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Enquire <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
+								</div>
+							</article>
 
-					<article class="wm-project-card">
-						<a class="wm-project-card__image wm-project-card__image--triangle" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
-							<?php
-							echo wm_image(
-								'triangle-front',
-								[
-									'sizes' => '(max-width: 768px) 100vw, 33vw',
-								]
-							); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							?>
-						</a>
-						<div class="wm-project-card__body">
-							<p class="wm-project-card__meta">Commercial · Osapa London, Lekki</p>
-							<h3><a href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">The Triangle Mall</a></h3>
-							<p>A commercial mall on the Lekki-Epe Expressway at Osapa London, Lekki.</p>
-							<a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Enquire <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
+							<article class="wm-project-card">
+								<a class="wm-project-card__image" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
+									<?php
+									echo wm_image(
+										'kayfarm',
+										[
+											'sizes' => '(max-width: 600px) 110px, 150px',
+										]
+									); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									?>
+								</a>
+								<div class="wm-project-card__body">
+									<p class="wm-project-card__meta">Residential · Ikeja</p>
+									<h3><a href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Kayfarm</a></h3>
+									<p>Six 4-bedroom terraced homes at Kayfarm, Ikeja, planned for family living.</p>
+									<a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Enquire <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
+								</div>
+							</article>
+
+							<article class="wm-project-card">
+								<a class="wm-project-card__image wm-project-card__image--triangle" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>" tabindex="-1" aria-hidden="true">
+									<?php
+									echo wm_image(
+										'triangle-front',
+										[
+											'sizes' => '(max-width: 600px) 110px, 150px',
+										]
+									); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									?>
+								</a>
+								<div class="wm-project-card__body">
+									<p class="wm-project-card__meta">Commercial · Osapa London, Lekki</p>
+									<h3><a href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">The Triangle Mall</a></h3>
+									<p>A commercial mall on the Lekki-Epe Expressway at Osapa London, Lekki.</p>
+									<a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Enquire <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
+								</div>
+							</article>
 						</div>
-					</article>
+					</div>
+
+					<div class="wm-projects__gallery">
+						<div class="wm-gallery" role="region" aria-roledescription="carousel" aria-label="Westmarc project gallery" data-wm-gallery>
+							<div class="wm-gallery__viewport" data-wm-gallery-viewport>
+								<div class="wm-gallery__track" data-wm-gallery-track>
+									<?php foreach ( $wm_gallery as $wm_index => $wm_slide ) : ?>
+										<figure class="wm-gallery__slide <?php echo esc_attr( $wm_slide['class'] ); ?>" data-wm-gallery-slide>
+											<?php
+											echo wm_image(
+												$wm_slide['key'],
+												[
+													'sizes'   => '(max-width: 1024px) 94vw, 55vw',
+													'loading' => $wm_index < 2 ? 'eager' : 'lazy',
+												]
+											); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											?>
+											<figcaption class="wm-gallery__caption">
+												<strong><?php echo esc_html( $wm_slide['title'] ); ?></strong>
+												<span><?php echo esc_html( $wm_slide['meta'] ); ?></span>
+											</figcaption>
+										</figure>
+									<?php endforeach; ?>
+								</div>
+								<button class="wm-gallery__btn wm-gallery__btn--prev" type="button" data-wm-gallery-prev aria-label="Previous image"><?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></button>
+								<button class="wm-gallery__btn wm-gallery__btn--next" type="button" data-wm-gallery-next aria-label="Next image"><?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></button>
+							</div>
+							<div class="wm-gallery__bar">
+								<div class="wm-gallery__dots" data-wm-gallery-dots></div>
+								<span class="wm-gallery__count"><span data-wm-gallery-current>01</span> / <?php echo esc_html( str_pad( (string) count( $wm_gallery ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+							</div>
+							<p class="wm-gallery__status wm-sr-only" aria-live="polite" aria-atomic="true" data-wm-gallery-status></p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

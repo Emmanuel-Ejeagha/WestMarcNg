@@ -1,0 +1,32 @@
+
+---Downloaded files---
+The import files for: Import daxx were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = https://westmarcng.com
+Data file = /home2/westmar3/public_html/wp-content/themes/daxx/sample-data/contents-demo.xml
+Widget file = /home2/westmar3/public_html/wp-content/themes/daxx/sample-data/widget-settings.json
+Customizer file = /home2/westmar3/public_html/wp-content/themes/daxx/sample-data/customizer-data.dat
+Redux files:
+not defined!
+
+---Importing widgets---
+Footer One Widget : 
+
+Footer One - Do you want to visit us? - Imported
+
+Footer Two Widget : 
+
+Footer Two - No Title - Imported
+
+Footer Three Widget : 
+
+Footer Three - No Title - Imported
+
+
+
+---Importing customizer settings---
+Error: The customizer import file is not in a correct format. Please make sure to use the correct customizer import file.
+
+---ocdi/after_import---
+

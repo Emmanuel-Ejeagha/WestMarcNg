@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="8" height="15" viewBox="0,0,136.53125,256">
+  <g fill="#290cc5" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+    <g transform="translate(-0.00101,-6.4) scale(17.06667,17.06667)">
+      <path d="M7.25391,8.75l0.39648,-2.5293h-2.43359v-1.65429c0,-0.34636 0.10026,-0.66081 0.30078,-0.94336c0.20963,-0.28256 0.58333,-0.42383 1.12109,-0.42383h1.10742v-2.14649c0,0 -0.20963,-0.02734 -0.6289,-0.08203c-0.41016,-0.0638 -0.85222,-0.0957 -1.32617,-0.0957c-0.50131,0 -0.95704,0.07292 -1.36719,0.21875c-0.41016,0.15495 -0.76107,0.37826 -1.05274,0.66992c-0.28255,0.28255 -0.5013,0.63802 -0.65625,1.06641c-0.15494,0.41927 -0.23242,0.90234 -0.23242,1.44922v1.9414h-2.22851v2.5293h2.22851v6.125h2.73438v-6.125z"></path>
+    </g>
+  </g>
+</svg>

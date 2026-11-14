@@ -1,0 +1,3 @@
+Nov 13 2026 11:54:18
+{"type":8192,"message":"version_compare(): Passing null to parameter #2 ($version2) of type string is deprecated","file":"C:\\Users\\hp\\Local Sites\\westmarc-local\\app\\public\\wp-content\\plugins\\elementor\\core\\experiments\\manager.php","line":167}
+

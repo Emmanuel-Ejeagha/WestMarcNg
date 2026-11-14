@@ -1,0 +1,61 @@
+
+---Downloaded files---
+The import files for: Houzez20 were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = https://westmarcng.com
+Data file = /home2/westmar3/public_html/wp-content/uploads/2024/04/demo-content-import-file_2024-04-23__03-12-17.xml
+Widget file = /home2/westmar3/public_html/wp-content/uploads/2024/04/demo-widgets-import-file_2024-04-23__03-12-17.json
+Customizer file = not defined!
+Redux files:
+houzez_options -> /home2/westmar3/public_html/wp-content/uploads/2024/04/demo-redux-import-file_0-2024-04-23__03-12-17.json 
+
+
+---ocdi/before_content_import---
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Default Sidebar : 
+
+Archives - No Title - Imported
+Categories - No Title - Imported
+Meta - No Title - Imported
+
+Property Listings : 
+
+HOUZEZ: Featured Properties - Featured Listings - Imported
+HOUZEZ: Property Taxonomies - Property Type - Imported
+HOUZEZ: Property Taxonomies - Cities - Imported
+
+Search Sidebar : 
+
+HOUZEZ: Property Taxonomies - Popular Cities - Imported
+HOUZEZ: Featured Properties - Featured - Imported
+
+Page Sidebar : 
+
+HOUZEZ: Featured Properties - Featured - Imported
+HOUZEZ: Property Taxonomies - Discover - Imported
+HOUZEZ: Latest Posts - Latest Posts - Imported
+
+Agency Sidebar : 
+
+HOUZEZ: Agency Search - Find Agency - Imported
+HOUZEZ: Featured Properties - Featured - Imported
+
+Agent Sidebar : 
+
+HOUZEZ: Agent Search - Find Agent - Imported
+HOUZEZ: Recent View Properties - Recent Viewed  - Imported
+
+
+
+---Importing Redux settings---
+Redux settings import for: houzez_options finished successfully!
+
+---ocdi/after_import---
+

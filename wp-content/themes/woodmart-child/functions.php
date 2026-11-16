@@ -3,7 +3,7 @@
  * Westmarc child theme functions.
  */
 
-define( 'WM_CHILD_VERSION', '1.3.0' );
+define( 'WM_CHILD_VERSION', '1.4.0' );
 
 require_once get_stylesheet_directory() . '/inc/icons.php';
 require_once get_stylesheet_directory() . '/inc/media.php';
@@ -15,6 +15,18 @@ require_once get_stylesheet_directory() . '/inc/media.php';
  */
 function wm_is_front_page() {
 	return is_front_page() && ! is_admin();
+}
+
+/**
+ * URL of the mandated hero poster.
+ *
+ * The file is referenced directly because it is not registered in the media
+ * library. No replacement or generated derivative is used.
+ *
+ * @return string
+ */
+function wm_hero_poster_url() {
+	return content_url( '/uploads/2026/11/ad buy shop and office space.jpeg' );
 }
 
 /**
@@ -82,11 +94,30 @@ function wm_resource_hints() {
 	echo '<link rel="preload" href="' . esc_url( $theme_uri . '/assets/fonts/playfair-display-var.woff2' ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
 
 	if ( wm_is_front_page() ) {
-		$hero_srcset = wm_asset_srcset( 'greenland' );
-		echo '<link rel="preload" as="image" href="' . esc_url( wm_asset_url( 'greenland', 1080 ) ) . '" imagesrcset="' . esc_attr( $hero_srcset ) . '" imagesizes="(max-width: 900px) 100vw, 46vw" fetchpriority="high">' . "\n";
+		echo '<link rel="preload" as="image" href="' . esc_url( wm_hero_poster_url() ) . '" fetchpriority="high">' . "\n";
 	}
 }
 add_action( 'wp_head', 'wm_resource_hints', 1 );
+
+/**
+ * Select the appropriate header logo derivative and load it eagerly.
+ *
+ * @param array   $attr       Image attributes.
+ * @param WP_Post $attachment Attachment object.
+ * @param string  $size       Requested image size.
+ * @return array
+ */
+function wm_header_logo_attributes( $attr, $attachment, $size ) {
+	if ( ! ( $attachment instanceof WP_Post ) || 26226 !== (int) $attachment->ID ) {
+		return $attr;
+	}
+
+	$attr['sizes']   = '(max-width: 1024px) 155px, 200px';
+	$attr['loading'] = 'eager';
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'wm_header_logo_attributes', 10, 3 );
 
 /**
  * Remove the theme's Google Fonts request. The site uses self-hosted fonts.

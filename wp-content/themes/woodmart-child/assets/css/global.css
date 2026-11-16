@@ -370,6 +370,9 @@ button.btn:hover,
 	--wd-top-bar-h: 40px;
 	--wd-header-general-h: 88px;
 	--wd-header-general-sticky-h: 68px;
+	--wm-gold: #c99732;
+	--wm-gold-deep: #8a671f;
+	--wm-gold-soft: #e2c98f;
 }
 .whb-header .container {
 	max-width: 1320px;
@@ -378,70 +381,87 @@ button.btn:hover,
 .whb-top-bar {
 	background: var(--wm-ink);
 	border: 0;
-	box-shadow: inset 0 2px 0 var(--wm-gold);
+	box-shadow: inset 0 -1px 0 rgba(201, 151, 50, 0.55);
 	color: #d8d2c4;
 }
 .whb-top-bar .wd-header-nav { min-height: 40px; }
 .whb-top-bar .woodmart-nav-link {
 	padding-block: 12px;
 	font-family: var(--wm-font-body);
-	font-size: 11px;
+	font-size: 10.5px;
 	font-weight: 500;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.055em;
 	color: #cfc8ba;
 }
 .whb-top-bar .woodmart-nav-link:hover { color: var(--wm-white); }
 .whb-top-bar .wd-nav-img { filter: brightness(0) invert(1); opacity: 0.68; }
 .whb-general-header {
-	background: rgba(250, 248, 244, 0.94);
+	background: rgba(250, 248, 244, 0.97);
 	border-bottom: 1px solid var(--wm-line);
 	-webkit-backdrop-filter: saturate(160%) blur(12px);
 	backdrop-filter: saturate(160%) blur(12px);
 }
 .whb-general-header .whb-flex-row { min-height: 88px; }
+@media (min-width: 1025px) {
+	.whb-header .whb-general-header .whb-flex-row {
+		height: 88px;
+		max-height: 88px;
+		min-height: 88px;
+	}
+	.whb-header.whb-sticked .whb-general-header .whb-flex-row {
+		height: 68px;
+		max-height: 68px;
+		min-height: 68px;
+	}
+}
 .whb-sticked .whb-general-header .whb-flex-row { min-height: 68px; }
-.whb-sticked .whb-general-header { box-shadow: 0 14px 34px rgba(20, 18, 13, 0.08); }
+.whb-sticked .whb-general-header { box-shadow: 0 12px 32px rgba(20, 18, 13, 0.08); }
 .whb-header .wd-logo img { width: auto; height: auto; max-width: 100%; display: block; object-fit: contain; }
 
-.wd-nav-main > li > a {
+.whb-header .wd-nav-main > li > a {
 	font-family: var(--wm-font-body);
 	font-size: 12.5px;
 	font-weight: 500;
-	letter-spacing: 0.07em;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--wm-ink);
+	transition: color 180ms var(--wm-ease);
 }
-.wd-nav-main > li > a:hover,
-.wd-nav-main > li.current-menu-item > a { color: var(--wm-gold-deep); }
-.wd-nav-main > li > a:after { background-color: var(--wm-gold); }
-.wd-nav-main > li > a .nav-link-text:after { background-color: var(--wm-gold); }
+.whb-header .wd-nav-main > li > a:hover,
+.whb-header .wd-nav-main > li.current-menu-item > a { color: var(--wm-gold-deep); }
+.whb-header .wd-nav-main > li > a:after,
+.whb-header .wd-nav-main > li > a .nav-link-text:after { background-color: var(--wm-gold); }
+/* The Projects item points to a section of the home page, so both it and Home
+   carry the current classes. Keep the active emphasis on Home. */
+.home .whb-header .wd-nav-main > li.menu-item-type-custom.current-menu-item:not(:hover) > a { color: var(--wm-ink); }
+.home .whb-header .wd-nav-main > li.menu-item-type-custom.current-menu-item:not(:hover) > a .nav-link-text:after { transform: scaleX(0); }
 
 .wd-header-html { display: flex; align-items: center; }
 .wm-header-cta {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 46px;
-	padding: 0 22px;
+	min-height: 48px;
+	padding: 0 24px;
 	background: var(--wm-ink);
 	border: 1px solid var(--wm-ink);
 	border-radius: var(--wm-radius);
 	color: var(--wm-white);
 	font-family: var(--wm-font-body);
-	font-size: 12px;
+	font-size: 11.5px;
 	font-weight: 600;
-	letter-spacing: 0.06em;
+	letter-spacing: 0.08em;
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
 	transition: background-color 180ms var(--wm-ease), border-color 180ms var(--wm-ease), color 180ms var(--wm-ease), transform 180ms var(--wm-ease), box-shadow 180ms var(--wm-ease);
 }
 .wm-header-cta:hover {
-	background: var(--wm-gold-deep);
-	border-color: var(--wm-gold-deep);
-	color: var(--wm-white);
+	background: var(--wm-gold);
+	border-color: var(--wm-gold);
+	color: var(--wm-ink);
 	transform: translateY(-1px);
-	box-shadow: 0 8px 20px rgba(138, 106, 31, 0.22);
+	box-shadow: 0 8px 20px rgba(201, 151, 50, 0.24);
 }
 .wm-header-cta:focus-visible {
 	outline: 2px solid var(--wm-gold);
@@ -453,6 +473,12 @@ button.btn:hover,
 .mobile-nav .wd-nav-mobile {
 	font-family: var(--wm-font-body);
 }
+.mobile-nav .wd-nav-mobile {
+	background: var(--wm-paper);
+}
+.mobile-nav .wd-nav-mobile > li {
+	border-bottom: 1px solid var(--wm-line);
+}
 .mobile-nav .wd-nav-mobile > li > a {
 	font-size: 16px;
 	font-weight: 500;
@@ -461,6 +487,7 @@ button.btn:hover,
 	color: var(--wm-ink);
 }
 .mobile-nav .wd-nav-mobile > li.current-menu-item > a { color: var(--wm-gold-deep); }
+.home .mobile-nav .wd-nav-mobile > li.menu-item-type-custom.current-menu-item:not(:hover) > a { color: var(--wm-ink); }
 .mobile-nav .wd-nav-mobile .wd-nav-opener { color: var(--wm-ink); }
 
 /* Footer ---------------------------------------------------------------- */

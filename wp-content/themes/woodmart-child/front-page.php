@@ -31,25 +31,30 @@ get_header();
 					<p class="wm-hero__note">Site inspections by appointment · Ajah, Lekki &amp; Ikeja</p>
 				</div>
 
-				<figure class="wm-hero__media">
-					<div class="wm-hero__frame">
-						<span class="wm-hero__badge">Now selling · Greenland Estate</span>
-						<?php
-						echo wm_image(
-							'greenland',
-							[
-								'sizes'         => '(max-width: 900px) 100vw, 46vw',
-								'loading'       => 'eager',
-								'fetchpriority' => 'high',
-							]
-						); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						?>
+				<aside class="wm-hero__panel" aria-label="Featured offering">
+					<div class="wm-hero__panel-head">
+						<span class="wm-hero__panel-label">Featured offering</span>
+						<span class="wm-hero__panel-place">Retail &amp; office</span>
 					</div>
-					<figcaption class="wm-hero__caption">
-						<span><strong>Greenland Estate</strong> · Lekki-Ajah</span>
-						<span>5 × 2-bedroom · 1 × 4-bedroom duplex</span>
-					</figcaption>
-				</figure>
+
+					<figure class="wm-hero__poster">
+						<div class="wm-hero__poster-frame">
+							<img
+								src="<?php echo esc_url( wm_hero_poster_url() ); ?>"
+								width="642"
+								height="1080"
+								alt="<?php echo esc_attr( 'Urban Tola Mall advertisement for shops and office space on Mobil Road, Ajah, Lagos' ); ?>"
+								loading="eager"
+								fetchpriority="high"
+								decoding="async"
+							>
+						</div>
+						<figcaption class="wm-hero__poster-caption">
+							<strong>Urban Tola Mall</strong>
+							<span>Shops &amp; office spaces · Mobil Road, Ajah</span>
+						</figcaption>
+					</figure>
+				</aside>
 			</div>
 		</section>
 

@@ -36,11 +36,24 @@
 		var timer = null;
 		var hovering = false;
 		var focused = false;
+		var touchActive = false;
 		var inView = true;
 		var reduced = reduceQuery.matches;
 
 		function pad(number) {
 			return (number < 10 ? '0' : '') + number;
+		}
+
+		function isKeyboardFocus(element) {
+			if (!element || typeof element.matches !== 'function') {
+				return false;
+			}
+
+			try {
+				return element.matches(':focus-visible');
+			} catch (error) {
+				return false;
+			}
 		}
 
 		function labelFor(slideIndex) {
@@ -171,19 +184,35 @@
 			}
 		});
 
-		carousel.addEventListener('pointerenter', function () {
+		carousel.addEventListener('pointerenter', function (event) {
+			// Hover pause is a mouse enhancement. Touch pointers must not pin it on.
+			if (event.pointerType && event.pointerType !== 'mouse') {
+				return;
+			}
+
 			hovering = true;
 			stop();
 		});
 
-		carousel.addEventListener('pointerleave', function () {
+		carousel.addEventListener('pointerleave', function (event) {
+			if (event.pointerType && event.pointerType !== 'mouse') {
+				return;
+			}
+
 			hovering = false;
 			start();
 		});
 
-		carousel.addEventListener('focusin', function () {
-			focused = true;
-			stop();
+		carousel.addEventListener('focusin', function (event) {
+			// Touch taps focus buttons but are not keyboard focus. Only a visible
+			// keyboard focus should keep autoplay paused indefinitely.
+			focused = isKeyboardFocus(event.target);
+
+			if (focused || touchActive) {
+				stop();
+			} else {
+				start();
+			}
 		});
 
 		carousel.addEventListener('focusout', function (event) {
@@ -200,6 +229,28 @@
 				start();
 			}
 		});
+
+		function beginTouch(event) {
+			if (event.pointerType !== 'touch' && event.pointerType !== 'pen') {
+				return;
+			}
+
+			touchActive = true;
+			stop();
+		}
+
+		function endTouch() {
+			if (!touchActive) {
+				return;
+			}
+
+			touchActive = false;
+			start();
+		}
+
+		carousel.addEventListener('pointerdown', beginTouch, { passive: true });
+		window.addEventListener('pointerup', endTouch, { capture: true, passive: true });
+		window.addEventListener('pointercancel', endTouch, { capture: true, passive: true });
 
 		var startX = 0;
 		var startY = 0;
@@ -261,7 +312,7 @@
 						stop();
 					}
 				});
-			}, { threshold: 0.3 });
+			}, { threshold: 0.01 });
 
 			observer.observe(carousel);
 		} else {

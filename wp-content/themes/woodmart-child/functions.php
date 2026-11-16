@@ -3,7 +3,7 @@
  * Westmarc child theme functions.
  */
 
-define( 'WM_CHILD_VERSION', '1.4.0' );
+define( 'WM_CHILD_VERSION', '1.4.1' );
 
 require_once get_stylesheet_directory() . '/inc/icons.php';
 require_once get_stylesheet_directory() . '/inc/media.php';
@@ -18,7 +18,7 @@ function wm_is_front_page() {
 }
 
 /**
- * URL of the mandated hero poster.
+ * URL of the first hero slide.
  *
  * The file is referenced directly because it is not registered in the media
  * library. No replacement or generated derivative is used.
@@ -27,6 +27,144 @@ function wm_is_front_page() {
  */
 function wm_hero_poster_url() {
 	return content_url( '/uploads/2026/11/ad buy shop and office space.jpeg' );
+}
+
+/**
+ * Data for the five approved hero slides.
+ *
+ * Slides 2, 3 and 5 use the existing optimized media map. Slides 1 and 4
+ * reference their exact uploaded files directly because they are not part of
+ * that map. No new crops or replacements are generated.
+ *
+ * @return array
+ */
+function wm_hero_slides() {
+	static $slides = null;
+
+	if ( null !== $slides ) {
+		return $slides;
+	}
+
+	$slides = [
+		[
+			'id'        => 'wm-hero-slide-1',
+			'key'       => 'commercial',
+			'label'     => 'Commercial Properties',
+			'alt'       => 'Urban Tola Mall advertisement for shops and office space on Mobil Road, Ajah, Lagos',
+			'file'      => 'ad buy shop and office space.jpeg',
+			'width'     => 642,
+			'height'    => 1080,
+			'media_key' => '',
+			'srcset'    => [],
+		],
+		[
+			'id'        => 'wm-hero-slide-2',
+			'key'       => 'greenland',
+			'label'     => 'Greenland Estate',
+			'alt'       => 'Render of Greenland Estate in Lekki-Ajah, with 2-bedroom apartments and a 4-bedroom duplex',
+			'file'      => '',
+			'width'     => 1080,
+			'height'    => 607,
+			'media_key' => 'greenland',
+			'srcset'    => [],
+		],
+		[
+			'id'        => 'wm-hero-slide-3',
+			'key'       => 'kayfarm',
+			'label'     => 'Kayfarm Ikeja',
+			'alt'       => 'Render of six 4-bedroom terraced homes at Kayfarm, Ikeja',
+			'file'      => '',
+			'width'     => 960,
+			'height'    => 540,
+			'media_key' => 'kayfarm',
+			'srcset'    => [],
+		],
+		[
+			'id'        => 'wm-hero-slide-4',
+			'key'       => 'shops',
+			'label'     => 'Shops and Office Spaces',
+			'alt'       => 'Urban Tola Mall exterior with shops and office spaces in Ajah, Lagos',
+			'file'      => 'shops and office space 2.jpeg',
+			'width'     => 1080,
+			'height'    => 810,
+			'media_key' => '',
+			'srcset'    => [
+				'shops and office space 2-400x300.jpeg'  => 400,
+				'shops and office space 2-768x576.jpeg'  => 768,
+				'shops and office space 2-1067x800.jpeg' => 1067,
+				'shops and office space 2.jpeg'          => 1080,
+			],
+		],
+		[
+			'id'        => 'wm-hero-slide-5',
+			'key'       => 'triangle',
+			'label'     => 'The Triangle Mall',
+			'alt'       => 'The Triangle Mall on the Lekki-Epe Expressway, Osapa London, Lekki',
+			'file'      => '',
+			'width'     => 810,
+			'height'    => 1080,
+			'media_key' => 'triangle-front',
+			'srcset'    => [],
+		],
+	];
+
+	return $slides;
+}
+
+/**
+ * Output the image markup for one hero slide.
+ *
+ * @param array $slide Slide data.
+ * @param int   $index Zero-based slide index.
+ * @return string
+ */
+function wm_hero_slide_image( $slide, $index ) {
+	$sizes   = '(max-width: 600px) 100vw, (max-width: 768px) 78vw, (max-width: 1024px) 74vw, (max-width: 1440px) 52vw, 720px';
+	$loading = 0 === $index ? 'eager' : '';
+	$fetch   = 0 === $index ? 'high' : '';
+
+	if ( ! empty( $slide['media_key'] ) ) {
+		return wm_image(
+			$slide['media_key'],
+			[
+				'alt'           => $slide['alt'],
+				'class'         => 'wm-hero-slide__img',
+				'sizes'         => $sizes,
+				'loading'       => $loading,
+				'fetchpriority' => $fetch,
+			]
+		);
+	}
+
+	$src    = content_url( '/uploads/2026/11/' . $slide['file'] );
+	$srcset = [];
+
+	foreach ( $slide['srcset'] as $file => $width ) {
+		$srcset[] = esc_url( content_url( '/uploads/2026/11/' . $file ) ) . ' ' . (int) $width . 'w';
+	}
+
+	$attributes = [
+		'src'           => esc_url( $src ),
+		'srcset'        => implode( ', ', $srcset ),
+		'sizes'         => $sizes,
+		'width'         => (int) $slide['width'],
+		'height'        => (int) $slide['height'],
+		'alt'           => esc_attr( $slide['alt'] ),
+		'class'         => 'wm-hero-slide__img',
+		'loading'       => $loading,
+		'decoding'      => 'async',
+	];
+
+	$output = '<img';
+
+	foreach ( $attributes as $name => $value ) {
+		if ( '' === $value ) {
+			continue;
+		}
+		$output .= ' ' . $name . '="' . $value . '"';
+	}
+
+	return $output . ' />';
 }
 
 /**
@@ -42,6 +180,7 @@ function wm_enqueue_assets() {
 	if ( wm_is_front_page() ) {
 		wp_enqueue_style( 'wm-home', $theme_uri . '/assets/css/home.css', [ 'wm-global' ], $version );
 		wp_enqueue_script( 'wm-home', $theme_uri . '/assets/js/home.js', [], $version, true );
+		wp_enqueue_script( 'wm-hero-slideshow', $theme_uri . '/assets/js/hero-slideshow.js', [], $version, true );
 		wp_enqueue_script( 'wm-gallery', $theme_uri . '/assets/js/gallery.js', [], $version, true );
 	}
 }
@@ -85,7 +224,7 @@ function woodmart_child_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'woodmart_child_enqueue_styles', 10010 );
 
 /**
- * Preload the self-hosted fonts and the hero image.
+ * Preload the self-hosted fonts and the first hero slide.
  */
 function wm_resource_hints() {
 	$theme_uri = get_stylesheet_directory_uri();

@@ -370,10 +370,12 @@ button.btn:hover,
 	--wd-top-bar-h: 40px;
 	--wd-header-general-h: 88px;
 	--wd-header-general-sticky-h: 68px;
-	--wm-gold: #c99732;
-	--wm-gold-deep: #8a671f;
-	--wm-gold-soft: #e2c98f;
+	--wm-gold: #ce9e3c;
+	--wm-gold-deep: #8a6a1f;
+	--wm-gold-soft: #e6d2a2;
 }
+/* The parent header stylesheet loads after the child bundle and sets 40px. */
+.whb-header.whb-header { margin-bottom: 0; }
 .whb-header .container {
 	max-width: 1320px;
 	padding-inline: 32px;
@@ -381,7 +383,7 @@ button.btn:hover,
 .whb-top-bar {
 	background: var(--wm-ink);
 	border: 0;
-	box-shadow: inset 0 -1px 0 rgba(201, 151, 50, 0.55);
+	box-shadow: inset 0 -1px 0 rgba(206, 158, 60, 0.55);
 	color: #d8d2c4;
 }
 .whb-top-bar .wd-header-nav { min-height: 40px; }
@@ -461,7 +463,7 @@ button.btn:hover,
 	border-color: var(--wm-gold);
 	color: var(--wm-ink);
 	transform: translateY(-1px);
-	box-shadow: 0 8px 20px rgba(201, 151, 50, 0.24);
+	box-shadow: 0 8px 20px rgba(206, 158, 60, 0.24);
 }
 .wm-header-cta:focus-visible {
 	outline: 2px solid var(--wm-gold);

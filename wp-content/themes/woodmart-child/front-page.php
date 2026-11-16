@@ -16,6 +16,7 @@ get_header();
 	</div><!-- .container -->
 
 	<main class="wm-home">
+		<?php $wm_hero_slides = wm_hero_slides(); ?>
 
 		<!-- Hero ---------------------------------------------------------- -->
 		<section class="wm-hero" aria-labelledby="wm-hero-title">
@@ -31,30 +32,41 @@ get_header();
 					<p class="wm-hero__note">Site inspections by appointment · Ajah, Lekki &amp; Ikeja</p>
 				</div>
 
-				<aside class="wm-hero__panel" aria-label="Featured offering">
-					<div class="wm-hero__panel-head">
-						<span class="wm-hero__panel-label">Featured offering</span>
-						<span class="wm-hero__panel-place">Retail &amp; office</span>
-					</div>
+				<div class="wm-hero__media">
+					<div class="wm-hero-slideshow" data-wm-hero-slideshow role="region" aria-roledescription="carousel" aria-label="Featured Westmarc properties">
+						<div class="wm-hero-slideshow__stage" data-wm-hero-viewport>
+							<div class="wm-hero-slideshow__slides">
+								<?php foreach ( $wm_hero_slides as $wm_index => $wm_slide ) : ?>
+									<figure
+										class="wm-hero-slide wm-hero-slide--<?php echo esc_attr( $wm_slide['key'] ); ?><?php echo 0 === $wm_index ? ' is-active' : ''; ?>"
+										id="<?php echo esc_attr( $wm_slide['id'] ); ?>"
+										data-wm-hero-slide
+										aria-hidden="<?php echo 0 === $wm_index ? 'false' : 'true'; ?>"
+									>
+										<div class="wm-hero-slide__image">
+											<?php echo wm_hero_slide_image( $wm_slide, $wm_index ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										</div>
+										<figcaption class="wm-hero-slide__caption">
+											<span class="wm-hero-slide__label"><?php echo esc_html( $wm_slide['label'] ); ?></span>
+										</figcaption>
+									</figure>
+								<?php endforeach; ?>
+							</div>
 
-					<figure class="wm-hero__poster">
-						<div class="wm-hero__poster-frame">
-							<img
-								src="<?php echo esc_url( wm_hero_poster_url() ); ?>"
-								width="642"
-								height="1080"
-								alt="<?php echo esc_attr( 'Urban Tola Mall advertisement for shops and office space on Mobil Road, Ajah, Lagos' ); ?>"
-								loading="eager"
-								fetchpriority="high"
-								decoding="async"
-							>
+							<div class="wm-hero-slideshow__controls">
+								<button class="wm-hero-slideshow__btn wm-hero-slideshow__btn--prev" type="button" data-wm-hero-prev aria-label="Previous property"><?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></button>
+								<button class="wm-hero-slideshow__btn wm-hero-slideshow__btn--next" type="button" data-wm-hero-next aria-label="Next property"><?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></button>
+							</div>
 						</div>
-						<figcaption class="wm-hero__poster-caption">
-							<strong>Urban Tola Mall</strong>
-							<span>Shops &amp; office spaces · Mobil Road, Ajah</span>
-						</figcaption>
-					</figure>
-				</aside>
+
+						<div class="wm-hero-slideshow__bar">
+							<div class="wm-hero-slideshow__dots" data-wm-hero-dots role="group" aria-label="Choose a property"></div>
+							<span class="wm-hero-slideshow__count"><span data-wm-hero-current>01</span> / <?php echo esc_html( str_pad( (string) count( $wm_hero_slides ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+						</div>
+
+						<p class="wm-hero-slideshow__status wm-sr-only" aria-live="polite" aria-atomic="true" data-wm-hero-status></p>
+					</div>
+				</div>
 			</div>
 		</section>
 

@@ -14,7 +14,7 @@
 	}
 
 	var reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-	var AUTOPLAY_MS = 7000;
+	var AUTOPLAY_MS = 4000;
 
 	Array.prototype.forEach.call(galleries, function (gallery) {
 		var track = gallery.querySelector('[data-wm-gallery-track]');

@@ -3,7 +3,7 @@
  * Westmarc child theme functions.
  */
 
-define( 'WM_CHILD_VERSION', '1.4.1' );
+define( 'WM_CHILD_VERSION', '1.5.0' );
 
 require_once get_stylesheet_directory() . '/inc/icons.php';
 require_once get_stylesheet_directory() . '/inc/media.php';
@@ -30,9 +30,9 @@ function wm_hero_poster_url() {
 }
 
 /**
- * Data for the five approved hero slides.
+ * Data for the six approved hero slides.
  *
- * Slides 2, 3 and 5 use the existing optimized media map. Slides 1 and 4
+ * Slides 2, 3 and 5 use the existing optimized media map. Slides 1, 4 and 6
  * reference their exact uploaded files directly because they are not part of
  * that map. No new crops or replacements are generated.
  *
@@ -106,6 +106,17 @@ function wm_hero_slides() {
 			'media_key' => 'triangle-front',
 			'srcset'    => [],
 		],
+		[
+			'id'        => 'wm-hero-slide-6',
+			'key'       => 'triangle-inside',
+			'label'     => 'Inside The Triangle Mall',
+			'alt'       => 'Interior view of The Triangle Mall at Osapa London, Lekki',
+			'file'      => 'Inside view of Triangle Mall.jpeg',
+			'width'     => 1080,
+			'height'    => 810,
+			'media_key' => '',
+			'srcset'    => [],
+		],
 	];
 
 	return $slides;
@@ -176,6 +187,7 @@ function wm_enqueue_assets() {
 
 	wp_enqueue_style( 'wm-global', $theme_uri . '/assets/css/global.css', [ 'woodmart-style' ], $version );
 	wp_enqueue_script( 'wm-forms', $theme_uri . '/assets/js/forms.js', [], $version, true );
+	wp_enqueue_script( 'wm-header-nav', $theme_uri . '/assets/js/header-nav.js', [], $version, true );
 
 	if ( wm_is_front_page() ) {
 		wp_enqueue_style( 'wm-home', $theme_uri . '/assets/css/home.css', [ 'wm-global' ], $version );

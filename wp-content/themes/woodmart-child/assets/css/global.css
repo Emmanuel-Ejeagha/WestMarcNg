@@ -795,6 +795,107 @@ button.btn:hover,
 /* Selection, scrollbar */
 .wd-scroll-content { scrollbar-width: thin; }
 
+/* Our Services gallery -------------------------------------------------- */
+/* The theme's negative-gap banner can overhang tablet viewports by 10px. */
+.page-id-24967 .elementor-element-eab9d16 {
+	overflow-x: clip;
+}
+/* Keep the gallery itself frameless; the image cards carry the card styling. */
+.page-id-24967 .elementor-element-de26701 .premium-img-gallery {
+	border: 0 !important;
+	box-shadow: none !important;
+	background: transparent !important;
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-img {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--wm-radius);
+	background: var(--wm-sand);
+	box-shadow: 0 12px 32px rgba(20, 18, 13, 0.08);
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-img-container {
+	overflow: hidden;
+	background: var(--wm-sand);
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-img-container img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: center;
+	transition: transform 600ms var(--wm-ease);
+}
+.page-id-24967 .elementor-element-de26701 .premium-gallery-item:first-child .pa-gallery-img-container {
+	aspect-ratio: 16 / 9;
+}
+.page-id-24967 .elementor-element-de26701 .premium-gallery-item:first-child .pa-gallery-img-container img {
+	height: 100%;
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-img:hover .pa-gallery-img-container img,
+.page-id-24967 .elementor-element-de26701 .pa-gallery-img:focus-within .pa-gallery-img-container img {
+	transform: scale(1.035);
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-img .premium-gallery-caption {
+	position: absolute;
+	inset: auto 0 0;
+	z-index: 4;
+	padding: 64px 20px 18px;
+	background: linear-gradient(180deg, rgba(20, 18, 13, 0) 0%, rgba(20, 18, 13, 0.72) 55%, rgba(20, 18, 13, 0.92) 100%);
+	color: var(--wm-white);
+	pointer-events: none;
+}
+.page-id-24967 .elementor-element-de26701 .premium-gallery-img-name {
+	display: block;
+	font-family: var(--wm-font-display);
+	font-size: clamp(1rem, 1.4vw, 1.25rem);
+	font-weight: 500;
+	line-height: 1.25;
+	color: var(--wm-white);
+}
+.page-id-24967 .elementor-element-de26701 .premium-gallery-img-desc {
+	margin: 4px 0 0;
+	font-family: var(--wm-font-body);
+	font-size: 12px;
+	line-height: 1.45;
+	letter-spacing: 0.02em;
+	color: rgba(255, 255, 255, 0.78);
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-icons-inner-container {
+	top: 50%;
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-magnific-image span {
+	background: rgba(250, 248, 244, 0.94);
+	color: var(--wm-ink);
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-magnific-image svg {
+	fill: var(--wm-ink);
+	color: var(--wm-ink);
+}
+.page-id-24967 .elementor-element-de26701 .pa-gallery-whole-link:focus-visible {
+	outline: 2px solid var(--wm-gold);
+	outline-offset: -4px;
+}
+@media (max-width: 768px) {
+	.page-id-24967 .elementor-element-de26701 .pa-gallery-img .premium-gallery-caption {
+		padding: 48px 16px 14px;
+	}
+	.page-id-24967 .elementor-element-de26701 .premium-gallery-img-name {
+		font-size: 1rem;
+	}
+	.page-id-24967 .elementor-element-de26701 .premium-gallery-img-desc {
+		font-size: 11.5px;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.page-id-24967 .elementor-element-de26701 .pa-gallery-img-container img {
+		transition: none;
+	}
+	.page-id-24967 .elementor-element-de26701 .pa-gallery-img:hover .pa-gallery-img-container img,
+	.page-id-24967 .elementor-element-de26701 .pa-gallery-img:focus-within .pa-gallery-img-container img {
+		transform: none;
+	}
+}
+
 /* Responsive ------------------------------------------------------------ */
 @media (max-width: 1200px) {
 	.whb-header .container { padding-inline: 24px; }

@@ -24,7 +24,7 @@ get_header();
 				<div class="wm-hero__copy">
 					<p class="wm-eyebrow">Westmarc Nigeria Limited · Lagos</p>
 					<h1 id="wm-hero-title">Commercial property, <em>built for the long term.</em></h1>
-					<p class="wm-hero__sub">Westmarc develops, markets and manages commercial and residential property in Lagos — creating spaces for businesses to trade, teams to work and investors to build lasting value.</p>
+					<p class="wm-hero__sub">Westmarc develops, markets, and manages commercial and residential properties in Lagos, creating spaces where businesses thrive, teams collaborate, and investors build lasting value.</p>
 					<div class="wm-hero__actions">
 						<a class="wm-btn" href="#developments">Explore developments <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a>
 						<a class="wm-btn wm-btn--ghost" href="<?php echo esc_url( home_url( '/contact-us/#enquiry' ) ); ?>">Book a site inspection</a>
@@ -100,8 +100,8 @@ get_header();
 				<div class="wm-intro__copy">
 					<p class="wm-eyebrow">The company</p>
 					<h2 id="wm-intro-title">A Lagos property company focused on delivery.</h2>
-					<p class="wm-lead">Westmarc started operations in 2016 as an independent marketing company and became a full real estate company in 2019, as a subsidiary of Honatrix Nigeria Limited.</p>
-					<p>Our work covers property development, marketing, facility management and real estate consultancy, with a particular focus on commercial property. From modern office spaces to retail shops in busy plazas, we plan properties around how businesses actually use them.</p>
+					<p class="wm-lead">Westmarc started operations in 2016 as an independent marketing company and became a full real estate company in 2019, in partnership with Honatrix Nigeria Limited.</p>
+					<p>Our work covers property development, marketing, facility management and real estate consultancy, with a particular focus on commercial and residential property. From modern office spaces and retail shops in busy plazas to residential estates, we plan properties around how people and businesses actually use them.</p>
 					<dl class="wm-intro__facts">
 						<div>
 							<dt>Founded</dt>
@@ -112,7 +112,7 @@ get_header();
 							<dd>2019</dd>
 						</div>
 						<div>
-							<dt>Parent company</dt>
+							<dt>Partner company</dt>
 							<dd>Honatrix Nigeria Ltd</dd>
 						</div>
 					</dl>
@@ -362,7 +362,7 @@ get_header();
 					<article class="wm-why__item">
 						<span class="wm-why__num">02</span>
 						<h3>Ease of management</h3>
-						<p>Efficient property management keeps operations smooth, maintenance timely and tenants satisfied from acquisition onward.</p>
+						<p>Efficient property management keeps operations smooth, maintenance timely and tenants and investors satisfied from acquisition onward.</p>
 					</article>
 					<article class="wm-why__item">
 						<span class="wm-why__num">03</span>
@@ -394,14 +394,14 @@ get_header();
 				<div class="wm-section-head">
 					<p class="wm-eyebrow">What we do</p>
 					<h2 id="wm-services-title">Real estate services, end to end.</h2>
-					<p>From investment and leasing to valuation, advisory and day-to-day management, our team supports the full life of a property.</p>
+					<p>From real estate development, construction and management to investment, leasing, valuation and advisory, our team supports the full life of a property.</p>
 				</div>
 
 				<div class="wm-services__grid">
 					<article class="wm-service">
 						<span class="wm-service__icon"><?php echo wm_icon( 'income', 21 ); // phpcs:ignore ?></span>
 						<h3>Investment</h3>
-						<p>Investment opportunities in commercial real estate development projects, providing long-term returns through rental income and property appreciation.</p>
+						<p>Investment opportunities in commercial and residential real estate development projects, providing long-term returns through rental income and property appreciation.</p>
 					</article>
 					<article class="wm-service">
 						<span class="wm-service__icon"><?php echo wm_icon( 'payment', 21 ); // phpcs:ignore ?></span>
@@ -411,7 +411,7 @@ get_header();
 					<article class="wm-service">
 						<span class="wm-service__icon"><?php echo wm_icon( 'premises', 21 ); // phpcs:ignore ?></span>
 						<h3>Leasing</h3>
-						<p>Leasing properties within commercial developments, supporting occupancy and consistent rental income for property owners.</p>
+						<p>Leasing properties within commercial and residential developments, supporting occupancy and consistent rental income for property owners.</p>
 					</article>
 					<article class="wm-service">
 						<span class="wm-service__icon"><?php echo wm_icon( 'consult', 21 ); // phpcs:ignore ?></span>
@@ -426,7 +426,7 @@ get_header();
 					<article class="wm-service">
 						<span class="wm-service__icon"><?php echo wm_icon( 'management', 21 ); // phpcs:ignore ?></span>
 						<h3>Management</h3>
-						<p>Comprehensive property management for commercial developments, covering operations, maintenance and financial reporting.</p>
+						<p>Comprehensive property management for commercial and residential developments, covering operations, maintenance and financial reporting.</p>
 					</article>
 				</div>
 
@@ -579,7 +579,7 @@ get_header();
 			<div class="wm-container wm-faq__grid">
 				<div class="wm-faq__aside">
 					<p class="wm-eyebrow">Questions</p>
-					<h2 id="wm-faq-title">What buyers and tenants ask.</h2>
+					<h2 id="wm-faq-title">What buyers, tenants and investors ask.</h2>
 					<p>If your question is not answered here, speak to our team directly. We are happy to explain availability, payment terms and what an inspection involves.</p>
 					<p><a class="wm-link-arrow" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>">Contact Westmarc <?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></a></p>
 				</div>
@@ -603,7 +603,7 @@ get_header();
 					</details>
 					<details>
 						<summary>Do you manage properties after purchase?</summary>
-						<p>Yes. Westmarc provides facility and property management services for commercial developments, including operations and maintenance coordination, so owners can focus on their investment.</p>
+						<p>Yes. Westmarc provides facility and property management services for commercial and residential developments, including operations and maintenance coordination, so owners can focus on their investment.</p>
 					</details>
 					<details>
 						<summary>How do I start an investment or lease enquiry?</summary>

@@ -3,7 +3,7 @@
  * Westmarc child theme functions.
  */
 
-define( 'WM_CHILD_VERSION', '1.5.0' );
+define( 'WM_CHILD_VERSION', '1.6.3' );
 
 require_once get_stylesheet_directory() . '/inc/icons.php';
 require_once get_stylesheet_directory() . '/inc/media.php';
@@ -30,9 +30,9 @@ function wm_hero_poster_url() {
 }
 
 /**
- * Data for the six approved hero slides.
+ * Data for the seven approved hero slides.
  *
- * Slides 2, 3 and 5 use the existing optimized media map. Slides 1, 4 and 6
+ * Slides 2, 3 and 5 use the existing optimized media map. Slides 1, 4, 6 and 7
  * reference their exact uploaded files directly because they are not part of
  * that map. No new crops or replacements are generated.
  *
@@ -114,6 +114,17 @@ function wm_hero_slides() {
 			'file'      => 'Inside view of Triangle Mall.jpeg',
 			'width'     => 1080,
 			'height'    => 810,
+			'media_key' => '',
+			'srcset'    => [],
+		],
+		[
+			'id'        => 'wm-hero-slide-7',
+			'key'       => 'prince-daini',
+			'label'     => 'Prince Daini Mall',
+			'alt'       => 'Architectural render of Prince Daini Mall in Sangotedo, Ajah, Lagos',
+			'file'      => 'Prince Daini Mall  Sangotedo Ajah Lagos.jpeg',
+			'width'     => 960,
+			'height'    => 540,
 			'media_key' => '',
 			'srcset'    => [],
 		],
@@ -495,7 +506,7 @@ function wm_faq_schema() {
 		],
 		[
 			'q' => 'Do you manage properties after purchase?',
-			'a' => 'Yes. Westmarc provides facility and property management services for commercial developments, including operations and maintenance coordination, so owners can focus on their investment.',
+			'a' => 'Yes. Westmarc provides facility and property management services for commercial and residential developments, including operations and maintenance coordination, so owners can focus on their investment.',
 		],
 		[
 			'q' => 'How do I start an investment or lease enquiry?',

@@ -15,7 +15,7 @@
 
 		for (var i = 0; i < inputs.length; i++) {
 			if (inputs[i].getAttribute('pattern') === '[0-9()#&+*-=.]+') {
-				inputs[i].setAttribute('pattern', '[0-9+\\s-]+');
+				inputs[i].setAttribute('pattern', '[0-9+\\s\\-]+');
 				inputs[i].setAttribute('title', 'Only numbers, spaces, + and - are accepted.');
 			}
 		}

@@ -198,53 +198,6 @@ get_header();
 					<h2 id="wm-developments-title">Projects in Ajah, Lekki and Ikeja.</h2>
 					<p>A mix of commercial and residential developments at different stages. Inspections are arranged by appointment.</p>
 				</div>
-				<?php
-				$wm_gallery = [
-					[
-						'key'   => 'greenland',
-						'title' => 'Greenland Estate',
-						'meta'  => 'Residential · Lekki-Ajah',
-						'class' => '',
-					],
-					[
-						'key'   => 'kayfarm',
-						'title' => 'Kayfarm',
-						'meta'  => 'Residential · Ikeja',
-						'class' => '',
-					],
-					[
-						'key'   => 'triangle-front',
-						'title' => 'The Triangle Mall',
-						'meta'  => 'Commercial · Osapa London, Lekki',
-						'class' => 'wm-gallery__slide--triangle',
-					],
-					[
-						'key'   => 'triangle-inside',
-						'title' => 'Inside The Triangle Mall',
-						'meta'  => 'Osapa London, Lekki',
-						'class' => '',
-					],
-					[
-						'key'   => 'urban-exterior',
-						'title' => 'Urban Tola Mall',
-						'meta'  => 'Commercial · Ajah, Lagos',
-						'class' => '',
-					],
-					[
-						'key'   => 'urban-render',
-						'title' => 'Urban Tola Mall',
-						'meta'  => 'Architectural render',
-						'class' => '',
-					],
-					[
-						'key'   => 'site-team',
-						'title' => 'On site',
-						'meta'  => 'Westmarc project team',
-						'class' => 'wm-gallery__slide--team',
-					],
-				];
-				?>
-
 				<div class="wm-projects__layout">
 					<div class="wm-projects__cards">
 						<div class="wm-project-grid">
@@ -307,37 +260,22 @@ get_header();
 						</div>
 					</div>
 
-					<div class="wm-projects__gallery">
-						<div class="wm-gallery" role="region" aria-roledescription="carousel" aria-label="Westmarc project gallery" data-wm-gallery>
-							<div class="wm-gallery__viewport" data-wm-gallery-viewport>
-								<div class="wm-gallery__track" data-wm-gallery-track>
-									<?php foreach ( $wm_gallery as $wm_index => $wm_slide ) : ?>
-										<figure class="wm-gallery__slide <?php echo esc_attr( $wm_slide['class'] ); ?>" data-wm-gallery-slide>
-											<?php
-											echo wm_image(
-												$wm_slide['key'],
-												[
-													'sizes'   => '(max-width: 1024px) 94vw, 55vw',
-													'loading' => $wm_index < 2 ? 'eager' : 'lazy',
-												]
-											); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											?>
-											<figcaption class="wm-gallery__caption">
-												<strong><?php echo esc_html( $wm_slide['title'] ); ?></strong>
-												<span><?php echo esc_html( $wm_slide['meta'] ); ?></span>
-											</figcaption>
-										</figure>
-									<?php endforeach; ?>
-								</div>
-								<button class="wm-gallery__btn wm-gallery__btn--prev" type="button" data-wm-gallery-prev aria-label="Previous image"><?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></button>
-								<button class="wm-gallery__btn wm-gallery__btn--next" type="button" data-wm-gallery-next aria-label="Next image"><?php echo wm_icon( 'arrow-right', 16 ); // phpcs:ignore ?></button>
-							</div>
-							<div class="wm-gallery__bar">
-								<div class="wm-gallery__dots" data-wm-gallery-dots></div>
-								<span class="wm-gallery__count"><span data-wm-gallery-current>01</span> / <?php echo esc_html( str_pad( (string) count( $wm_gallery ), 2, '0', STR_PAD_LEFT ) ); ?></span>
-							</div>
-							<p class="wm-gallery__status wm-sr-only" aria-live="polite" aria-atomic="true" data-wm-gallery-status></p>
-						</div>
+					<div class="wm-projects__media">
+						<figure class="wm-development__figure">
+							<?php
+							echo wp_get_attachment_image(
+								25268,
+								'large',
+								false,
+								[
+									'class'    => 'wm-development__img',
+									'sizes'    => '(max-width: 1024px) 94vw, (max-width: 1400px) 55vw, 760px',
+									'decoding' => 'async',
+									'alt'      => 'Femi Olomola Plaza, a commercial development in Ajah, Lagos.',
+								]
+							); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							?>
+						</figure>
 					</div>
 				</div>
 			</div>

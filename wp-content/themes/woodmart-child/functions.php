@@ -3,7 +3,7 @@
  * Westmarc child theme functions.
  */
 
-define( 'WM_CHILD_VERSION', '1.6.3' );
+define( 'WM_CHILD_VERSION', '1.7.4' );
 
 require_once get_stylesheet_directory() . '/inc/icons.php';
 require_once get_stylesheet_directory() . '/inc/media.php';
@@ -204,7 +204,10 @@ function wm_enqueue_assets() {
 		wp_enqueue_style( 'wm-home', $theme_uri . '/assets/css/home.css', [ 'wm-global' ], $version );
 		wp_enqueue_script( 'wm-home', $theme_uri . '/assets/js/home.js', [], $version, true );
 		wp_enqueue_script( 'wm-hero-slideshow', $theme_uri . '/assets/js/hero-slideshow.js', [], $version, true );
-		wp_enqueue_script( 'wm-gallery', $theme_uri . '/assets/js/gallery.js', [], $version, true );
+	}
+
+	if ( is_page( 4400 ) ) {
+		wp_enqueue_style( 'wm-about', $theme_uri . '/assets/css/about.css', [ 'wm-global' ], $version );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wm_enqueue_assets', 10020 );
@@ -299,8 +302,8 @@ function wm_dequeue_early() {
 
 	wp_dequeue_style( 'xts-google-fonts' );
 	wp_dequeue_style( 'rs-plugin-settings' );
-	wp_dequeue_script( 'rbtools' );
-	wp_dequeue_script( 'rs6' );
+	wp_dequeue_script( 'tp-tools' );
+	wp_dequeue_script( 'revmin' );
 
 	if ( wm_is_front_page() ) {
 		wp_dequeue_style( 'contact-form-7' );
@@ -309,6 +312,22 @@ function wm_dequeue_early() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'wm_dequeue_early', 99999 );
+
+/**
+ * RevSlider adds its stylesheet in wp_footer after wp_enqueue_scripts.
+ * It is not used on this site (zero sliders), so remove it before the
+ * late footer styles are printed.
+ */
+function wm_dequeue_revslider_late() {
+	if ( is_admin() ) {
+		return;
+	}
+
+	wp_dequeue_style( 'rs-plugin-settings' );
+	wp_dequeue_script( 'tp-tools' );
+	wp_dequeue_script( 'revmin' );
+}
+add_action( 'wp_footer', 'wm_dequeue_revslider_late', 15 );
 
 /**
  * Drop Google Fonts DNS prefetch hints.

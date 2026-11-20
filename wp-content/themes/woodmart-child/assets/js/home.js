@@ -76,7 +76,7 @@
 	}
 
 	var targets = Array.prototype.slice.call(home.querySelectorAll('.wm-section, .wm-proof'));
-	var media = Array.prototype.slice.call(home.querySelectorAll('.wm-intro__media, .wm-feature__media, .wm-founder__media'));
+	var media = Array.prototype.slice.call(home.querySelectorAll('.wm-intro__media, .wm-feature__media, .wm-founder__media, .wm-development__figure'));
 
 	window.wmRevealReady = true;
 
